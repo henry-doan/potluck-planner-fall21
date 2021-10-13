@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :items, dependent: :destroy
   has_many :events, through: :items 
-  validates :first_name, :last_name, :email, :bio, :images, presence: true
+  # validates :first_name, :last_name, :email, :bio, :image, presence: true
 end
