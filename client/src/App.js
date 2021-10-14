@@ -6,7 +6,7 @@ import Nomatch from './components/shared/Nomatch';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import Profile from './components/shared/Profile';
+import Profile from './components/auth/Profile';
 const App = () => (
   <>
     <Navbar />
