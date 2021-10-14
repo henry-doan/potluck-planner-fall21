@@ -29,4 +29,14 @@ class Api::UsersController < ApplicationController
       end
     end
   end
+  
+  def userEvents
+    @user = User.find(params[:id])
+    render json: @user.events
+  end
+
+  def userItems
+    @user = User.find(params[:id])
+    render json: @user.items
+  end
 end
