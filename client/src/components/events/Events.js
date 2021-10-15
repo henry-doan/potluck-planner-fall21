@@ -3,7 +3,7 @@ import EventList from './EventList';
 
 const Events = () => (
   <>
-    <h1>Lists</h1>
+    <h1>Events</h1>
     <EventForm />
     <EventList />
   </>

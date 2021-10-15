@@ -8,7 +8,10 @@ import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Events from './components/events/Events';
 import ShowEvent from './components/events/ShowEvent';
+import Items from './components/items/Items';
+import ShowItem from './components/items/ShowItem';
 import Profile from './components/auth/Profile';
+
 
 const App = () => (
   <>
@@ -20,6 +23,8 @@ const App = () => (
         <Route exact path="/register" component={Register} />
         <ProtectedRoute exact path="/events" component={Events} />
         <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
+        <ProtectedRoute exact path="/items" component={Items} />
+        <ProtectedRoute exact path="/items/:id" component={ShowItem} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <Route component={Nomatch} />
       </Switch>

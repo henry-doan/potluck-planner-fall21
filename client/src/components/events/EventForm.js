@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { EventConsumer } from '../../providers/EventProvider';
 
 const EventForm = ({addEvent, id, title, event_date, event_time, details, image, updateEvent, setEdit}) => {
   const [event, setEvent] = useState({title: "", event_date: "", event_time: "", image: "", details: "" })
@@ -72,4 +73,10 @@ const EventForm = ({addEvent, id, title, event_date, event_time, details, image,
     )
   }
 
-export default EventForm;
+  const ConnectedEventForm = (props) => (
+    <EventConsumer>
+      { value => <EventForm {...props} {...value} />}
+    </EventConsumer>
+  )
+
+export default ConnectedEventForm;

@@ -1,57 +1,84 @@
 import { Link, withRouter } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import { Menu } from 'semantic-ui-react';
 
-const Navbar = ({ user, handleLogout, history }) => {
+const Navbar = ({ user, handleLogout, history, location }) => {
   const rightNavItems = () => {
     if (user) {
       // links if the user is logged in
       return (
-        <>
-          <li onClick={() => handleLogout(history)}>
-          Logout
-          </li>
-          <Link to="/profile">
-            <li>Profile</li>
+        <Menu pointing secondary>
+          <Link to="/events">
+            <Menu.Item
+              id='events'
+              name='events'
+              active={location.pathname === '/events'}
+            />
           </Link>
-        </>
+          <Link to="/myItems">
+            <Menu.Item
+              id='myItems'
+              name='my items'
+              active={location.pathname === '/myItems'}
+              />
+          </Link>
+          <Link to="/invite">
+            <Menu.Item
+              id='invite'
+              name='invite a buddy'
+              active={location.pathname === '/invite'}
+            />
+          </Link>
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='logout'
+              onClick={() => handleLogout(history)}
+            />
+            <Link to="/profile">
+              <Menu.Item
+                id='profile'
+                name='profile'
+                active={location.pathname === '/profile'}
+              />
+            </Link>
+          </Menu.Menu>  
+        </Menu>
       )
     } else {
       // links if there is no user logged in 
       return(
-        <>
-          <Link to="/events">
-            <li>Events</li>
+        <Menu.Menu position='right'>
+          <Link to='/login'>
+            <Menu.Item
+              id='login'
+              name='login'
+              active={location.pathname === '/login'}
+            />
           </Link>
-          <Link to="/myItems">
-            <li>My Items</li>
+          <Link to='/register'>
+            <Menu.Item
+              id='register'
+              name='register'
+              active={location.pathname === '/register'}
+            />
           </Link>
-          <Link to="/invite">
-            <li>Invite a Buddy</li>
-          </Link>
-          <Link to="/login">
-            <li>Login</li>
-          </Link>
-          <Link to="/register">
-            <li>Register</li>
-          </Link>
-        </>
+        </Menu.Menu>
       )
     }
   }
   return(
-    <>
-      <nav>
-        <ul>
-          {/* where you see links regardless of if you are login or not */}
-          <Link to="/">
-            <li>
-              Home
-            </li>
-          </Link>
+    <div>
+      <Menu pointing secondary>
+        <Link to='/'>
+          <Menu.Item
+            name='home'
+            id='home'
+            active={location.pathname === '/'}
+          />
+        </Link>
           { rightNavItems() }
-        </ul>
-      </nav>
-    </>
+      </Menu>
+    </div>
   )
 }
 

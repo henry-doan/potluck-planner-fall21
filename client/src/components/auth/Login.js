@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-
+import { Button, Header, Form, Segment } from 'semantic-ui-react'
 const Login = ({ handleLogin, history }) => {
   const [user, setUser] = useState({ email: "", password: "" })
 
@@ -10,10 +10,10 @@ const Login = ({ handleLogin, history }) => {
   }
 
   return(
-    <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+    <Segment raised>
+      <Header as='h2' textAlign='center'>Login</Header>
+      <Form onSubmit={handleSubmit}>
+        <Form.Input
           name="email"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
@@ -21,7 +21,7 @@ const Login = ({ handleLogin, history }) => {
           placeholder="Email"
           required
         />
-        <input
+        <Form.Input
           name="password"
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
@@ -29,9 +29,11 @@ const Login = ({ handleLogin, history }) => {
           placeholder="Password"
           required
         />
-          <button primary type="submit">Login</button>
-      </form>
-      </>
+        <Segment textAlign='center' basic>
+          <Button primary type="submit">Login</Button>
+        </Segment>
+      </Form>
+    </Segment>
   )
 }
 
