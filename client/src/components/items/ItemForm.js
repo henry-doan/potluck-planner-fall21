@@ -17,7 +17,7 @@ const ItemForm = ({addItem, id, event_id, user_id, food_name, complete, updateIt
     } else {
         addItem(item)
     }
-    setEvent({food_name: "", complete: false})
+    setItem({food_name: "", complete: false})
   }
 
   return (

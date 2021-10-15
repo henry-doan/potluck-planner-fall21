@@ -1,5 +1,5 @@
 import { EventConsumer } from '../../providers/EventProvider';
-import ItemList from '../items/ItemList;
+import ItemList from '../items/ItemList';
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
