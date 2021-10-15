@@ -12,7 +12,7 @@ const Event = ({id, title, event_date, details, image, event_time, deleteEvent, 
         <br/>
         Complete ? { complete ? "Yes" : "No" }
         {
-          editng ?
+          editing ?
           <>
             <EventForm 
             id={id}

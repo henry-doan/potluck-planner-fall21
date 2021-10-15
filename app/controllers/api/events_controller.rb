@@ -24,7 +24,7 @@ class Api::EventsController < ApplicationController
     if @event.update(event_params)
       render json: @event
     else 
-      render json: { errors:@event.errors }. status: :unprocessable_entity
+      render json: { errors:@event.errors }, status: :unprocessable_entity
     end
   end
 

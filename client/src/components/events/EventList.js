@@ -1,5 +1,5 @@
 import { EventConsumer } from '../../providers/EventProvider';
-import { Event} from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -11,7 +11,7 @@ const EventList = ({  events, grabEvents }) => {
 
   return(
     <>
-      <Event divided relaxed>
+      <List divided relaxed>
         {events.map( e => 
           <Link to={{
             pathname: `/events/${e.id}`,
@@ -19,14 +19,14 @@ const EventList = ({  events, grabEvents }) => {
               ...e
             }
           }}>
-            <Event.Item>
-              <Event.Content>
-                <Event.Header>{e.title}</Event.Header>
-              </Event.Content>
-            </Event.Item>
+            <List.Item>
+              <List.Content>
+                <List.Header>{e.title}</List.Header>
+              </List.Content>
+            </List.Item>
           </Link>
         )}
-      </Event>
+      </List>
     </>
   )
 }
