@@ -1,6 +1,7 @@
 
 const Home = () => (
-  <h1>Home Page</h1>
+  <h1>Potluck Planner</h1>
+
 )
 
 export default Home;
