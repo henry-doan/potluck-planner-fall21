@@ -15,11 +15,11 @@ const Navbar = ({ user, handleLogout, history, location }) => {
               active={location.pathname === '/events'}
             />
           </Link>
-          <Link to="/myItems">
+          <Link to="/items">
             <Menu.Item
-              id='myItems'
+              id='items'
               name='my items'
-              active={location.pathname === '/myItems'}
+              active={location.pathname === '/items'}
               />
           </Link>
           <Link to="/invite">

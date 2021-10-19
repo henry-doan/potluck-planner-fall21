@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 export const ItemContext = React.createContext();
@@ -8,25 +8,25 @@ const ItemProvider = ({ children }) => {
   const [items, setItems] = useState([])
 
   
-  const grabItems = () => {
-    axios.get('/api/items')
+  const grabItems = (eventId) => {
+    axios.get(`/api/events/${eventId}/items`)
       .then( res => setItems(res.data) )
       .catch( err => console.log(err))
   }
 
-  const addItem = (item) => {
-    axios.post('/api/items', { item })
-      .then( res => {
+  const addItem = (eventId, item) => {
+    axios.post(`/api/events/${eventId}/items`, { item })
+      .then( res => { 
         setItems([...items, res.data])
       })
       .catch( err => console.log(err))
   }
 
-  const updateItem = (id, item) => {
-    axios.put(`/api/items/${id}`, { item })
+  const updateItem = (eventId, id, item) => {
+    axios.put(`/api/events/${eventId}/items/${id}`, { item })
       .then(res => {
         const updatedItems = items.map( i => {
-          if (i.id == id) {
+          if (i.id === id) {
             return res.data 
           }
           return i
@@ -36,8 +36,8 @@ const ItemProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
-  const deleteItem = (id) => {
-    axios.delete(`api/items/${id}`)
+  const deleteItem = (eventId, id) => {
+    axios.delete(`api/events/${eventId}/items/${id}`)
       .then(res => {
         setItems(items.filter( i => i.id !== id))
       })

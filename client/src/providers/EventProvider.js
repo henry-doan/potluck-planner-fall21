@@ -7,11 +7,12 @@ export const EventConsumer = EventContext.Consumer;
 const EventProvider = ({ children }) => {
   const [events, setEvents] = useState([])
 
-  // useEffect(() => {
-  //   axios.get('/api/lists')
-  //     .then( res => setLists(res.data) )
-  //     .catch( err => console.log(err))
-  // }, [])
+  useEffect(() => {
+    axios.get('/api/events')
+      .then( res => setEvents(res.data) )
+      .catch( err => console.log(err))
+  }, [])
+
   const grabEvents = () => {
     axios.get('/api/events')
       .then( res => setEvents(res.data) )
@@ -26,16 +27,23 @@ const EventProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
+  const getUserEvent = (id, event) => {
+    axios.get(`/api/userEvent/${id}`, {event})
+      .then( res => setEvents(res.data) )
+      .catch( err => console.log(err))
+  }
+
   const updateEvent = (id, event) => {
     axios.put(`/api/events/${id}`, { event })
       .then(res => {
         const updatedEvents = events.map( l => {
-          if (l.id == id) {
+          if (l.id === id) {
             return res.data 
           }
           return l
         })
         setEvents(updatedEvents)
+        window.location.href = '/events'
       })
       .catch( err => console.log(err))
   }
@@ -44,6 +52,7 @@ const EventProvider = ({ children }) => {
     axios.delete(`api/events/${id}`)
       .then(res => {
         setEvents(events.filter( l => l.id !== id))
+        window.location.href = '/events'
       })
       .catch( err => console.log(err))
   }
@@ -55,6 +64,7 @@ const EventProvider = ({ children }) => {
       addEvent: addEvent,
       updateEvent: updateEvent,
       deleteEvent: deleteEvent,
+      getUserEvent: getUserEvent
     }}>
       { children}
     </EventContext.Provider>
