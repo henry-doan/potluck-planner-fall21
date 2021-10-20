@@ -8,7 +8,6 @@ import { initMiddleware } from 'devise-axios';
 import AuthProvider from './providers/AuthProvider';
 import EventProvider from './providers/EventProvider';
 import ItemProvider from './providers/ItemProvider';
-
 initMiddleware();
 
 ReactDOM.render(
@@ -16,9 +15,9 @@ ReactDOM.render(
     <AuthProvider>
       <EventProvider>
         <ItemProvider>
-          <BrowserRouter> 
-            <App />
-          </BrowserRouter>
+        <BrowserRouter> 
+          <App />
+        </BrowserRouter>
         </ItemProvider>
       </EventProvider>  
     </AuthProvider>  
