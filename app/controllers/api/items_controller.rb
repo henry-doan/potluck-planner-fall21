@@ -39,6 +39,10 @@ class Api::ItemsController < ApplicationController
     render json: @item
   end
 
+	def eventItems
+		render json: @event.items
+	end
+
 	private 
 		def item_params
 		params.require(:item).permit(:food_name, :complete, :event_id, :user_id)

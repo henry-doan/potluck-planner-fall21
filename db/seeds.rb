@@ -10,24 +10,25 @@
   @user = User.create(
     name: Faker::Name.name,
     nickname: Faker::Superhero.name, 
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    password: '123456'
   )
   2.times do
-    Event.create(
+   @event = Event.create(
       title: Faker::Mountain.name,
       event_date: Faker::Date.in_date_period,
       details: Faker::Lorem.paragraph,
       image: Faker::Placeholdit.image,
       event_time:"11am"
-    )
-  end
-  2.times do
-    Item.create(
-      food_name: Faker::Food.dish,
-      complete: false,
-      # user_id: user.id,
-      # event_id: event.id
-    )
+      )
+      2.times do
+        Item.create(
+          food_name: Faker::Food.dish,
+          complete: false,
+          user_id: @user.id,
+          event_id: @event.id
+        )
+      end
   end
 end
 puts "Data Seeded Yo!"

@@ -1,18 +1,18 @@
-import { ItemConsumer } from '../../providers/ItemProvider';
+import { AuthConsumer } from '../../providers/AuthProvider';
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const ItemList = ({ items, grabItems }) => {
+const ItemList = ({ userItems, grabUserItems }) => {
 
   useEffect( () => {
-    grabItems()
+    grabUserItems()
   }, [])
 
   return(
     <>
       <List divided relaxed>
-        {items.map( i => 
+        {userItems.map( i => 
           <Link to={{
             pathname: `/items/${i.id}`,
             state: {
@@ -21,7 +21,7 @@ const ItemList = ({ items, grabItems }) => {
           }}>
             <List.Item>
               <List.Content>
-                <List.Header>{i.title}</List.Header>
+                <List.Header>{i.food_name}</List.Header>
               </List.Content>
             </List.Item>
           </Link>
@@ -32,9 +32,9 @@ const ItemList = ({ items, grabItems }) => {
 }
 
 const ConnectedItemList = (props) => (
-  <ItemConsumer>
+  <AuthConsumer>
     { value => <ItemList {...value} {...props}/>}
-  </ItemConsumer>
+  </AuthConsumer>
 )
 
 export default ConnectedItemList;
