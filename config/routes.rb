@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'userEvents/:id', to: 'users#userEvents'
     get 'eventUsers/:id', to: 'events#eventUsers'
     get 'findItem/:user_id/:event_id', to: 'items#findItem'
+    get 'eventItems/:event_id', to: 'items#eventItems'
 
   end
 

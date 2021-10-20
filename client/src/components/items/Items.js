@@ -1,11 +1,11 @@
 import ItemForm from './ItemForm';
 import ItemList from './ItemList';
 
-const Items = () => (
+const Items = ({ eventId }) => (
   <>
     <h1>Items</h1>
-    <ItemForm />
-    <ItemList />
+    <ItemForm eventId={eventId}/>
+    <ItemList eventId={eventId}/>
   </>
 )
 

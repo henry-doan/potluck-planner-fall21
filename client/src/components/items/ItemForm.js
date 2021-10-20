@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ItemConsumer } from '../../providers/ItemProvider';
 
 const ItemForm = ({addItem, id, event_id, user_id, food_name, complete, updateItem, setEdit}) => {
   const [item, setItem] = useState({ food_name: "", complete: false })
@@ -47,4 +48,10 @@ const ItemForm = ({addItem, id, event_id, user_id, food_name, complete, updateIt
     )
   }
 
-export default ItemForm;
+  const ConnectedItemForm = (props) => (
+    <ItemConsumer>
+      { value => <ItemForm {...props} {...value} />}
+    </ItemConsumer>
+  )
+
+export default ConnectedItemForm;

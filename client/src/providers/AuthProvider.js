@@ -6,6 +6,34 @@ export const AuthConsumer = AuthContext.Consumer;
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
+  const [userEvents, setUserEvents] = useState([])
+  const [userItems, setUserItems] = useState([])
+  const [findItem, setFindItem] = useState([])
+  const [eventItems, setEventItems] = useState([])
+
+  const grabUserEvents = () => {
+    axios.get(`/api/userEvents/${user.id}`)
+      .then( res => setUserEvents(res.data))
+      .catch( err => console.log(err))
+  }
+ 
+  const grabUserItems = () => {
+    axios.get(`/api/userItems/${user.id}`)
+      .then( res => setUserItems(res.data))
+      .catch( err => console.log(err))
+  }
+
+  const grabFindItem = (eventId) => {
+    axios.get(`/api/findItem/${user.id}/${eventId}`)
+      .then( res => setFindItem(res.data))
+      .catch( err => console.log(err))
+  }
+
+  const grabEventItems = (eventId) => {
+    axios.get(`/api/eventItems/${eventId}`)
+      .then( res => setEventItems(res.data))
+      .catch( err => console.log(err))
+  }
 
   const handleRegister = (user, history) => {
     axios.post('/api/auth', user)
@@ -49,12 +77,20 @@ const AuthProvider = ({ children }) => {
   return(
     <AuthContext.Provider value={{
       user,
+      userEvents,
+      userItems,
+      findItem,
+      eventItems,
       handleRegister: handleRegister,
       handleLogin: handleLogin,
       handleLogout: handleLogout,
       authenticated: user !== null, 
       setUser: (user) => setUser({ user }),
-      updateUser: updateUser
+      updateUser: updateUser,
+      grabUserEvents: grabUserEvents,
+      grabUserItems: grabUserItems,
+      grabFindItem: grabFindItem,
+      grabEventItems: grabEventItems,
     }}>
       {children}
     </AuthContext.Provider>   
