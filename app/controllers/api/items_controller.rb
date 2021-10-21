@@ -1,9 +1,14 @@
 class Api::ItemsController < ApplicationController
-  before_action :set_event
+  before_action :set_event, except: [:grabAssignedItems]
 	
 	def index
 		render json: @current_user.items
 	end
+
+	def grabAssignedItems
+    render json: Item.events
+  end
+
 
 	def show
 		@item = @current_user.items.find(params[:id])
