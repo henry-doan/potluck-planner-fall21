@@ -6,6 +6,7 @@ export const ItemConsumer = ItemContext.Consumer;
 
 const ItemProvider = ({ children }) => {
   const [items, setItems] = useState([])
+  const [grabAssignedItems, setGrabAssignedItems] = useState([])
 
   
   const grabItems = (eventId) => {
@@ -13,6 +14,12 @@ const ItemProvider = ({ children }) => {
       .then( res => setItems(res.data) )
       .catch( err => console.log(err))
   }
+
+  const getGrabAssignedItems = (id) => {
+      axios.get(`/api/grabAssignedItems/${id}`)
+        .then( res => setGrabAssignedItems(res.data))
+        .catch( err => console.log(err))
+    }
 
   const addItem = (eventId, item) => {
     axios.post(`/api/events/${eventId}/items`, { item })
@@ -47,10 +54,12 @@ const ItemProvider = ({ children }) => {
   return (
     <ItemContext.Provider value={{
       items,
+      grabAssignedItems,
       grabItems: grabItems,
       addItem: addItem,
       updateItem: updateItem,
       deleteItem: deleteItem,
+      getGrabAssignedItems: getGrabAssignedItems
     }}>
       { children}
     </ItemContext.Provider>
