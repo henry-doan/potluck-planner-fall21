@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const [userItems, setUserItems] = useState([])
   const [findItem, setFindItem] = useState([])
   const [eventItems, setEventItems] = useState([])
+  // const [grabAssignedItems, setGrabAssignedItems] = useState([])
 
   const grabUserEvents = () => {
     axios.get(`/api/userEvents/${user.id}`)
@@ -34,6 +35,12 @@ const AuthProvider = ({ children }) => {
       .then( res => setEventItems(res.data))
       .catch( err => console.log(err))
   }
+  
+  // const getGrabAssignedItems = () => {
+  //   axios.get(`/api/grabAssignedItems/${user.id}`)
+  //     .then( res => setGrabAssignedItems(res.data))
+  //     .catch( err => console.log(err))
+  // }
 
   const handleRegister = (user, history) => {
     axios.post('/api/auth', user)
@@ -81,6 +88,7 @@ const AuthProvider = ({ children }) => {
       userItems,
       findItem,
       eventItems,
+      // grabAssignedItems,
       handleRegister: handleRegister,
       handleLogin: handleLogin,
       handleLogout: handleLogout,
@@ -91,6 +99,7 @@ const AuthProvider = ({ children }) => {
       grabUserItems: grabUserItems,
       grabFindItem: grabFindItem,
       grabEventItems: grabEventItems,
+      // getGrabAssignedItems: getGrabAssignedItems,
     }}>
       {children}
     </AuthContext.Provider>   

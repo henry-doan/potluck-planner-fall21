@@ -1,13 +1,19 @@
-import { AuthConsumer } from "../../providers/AuthProvider";
+import { ItemConsumer } from "../../providers/ItemProvider";
 import { useEffect } from "react";
+import { List } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-const ShowEvent = ({ location, grabFindItem, findItem, grabEventItems }) => {
+const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
 
-  const { id, title, event_date, event_time, details, image } = location.state
+  const { id, title, event_date, event_time, details, image, event_id } = location.state
 
   useEffect(() => {
-    grabEventItems(id)
+    getGrabAssignedItems(id)
   }, [])
+
+  const filteredItems = grabAssignedItems.filter( i =>
+      id === i.event_id
+    )
 
   return (
     <>  
@@ -16,15 +22,32 @@ const ShowEvent = ({ location, grabFindItem, findItem, grabEventItems }) => {
       <p>{event_date}</p>
       <p>{event_time}</p>
       <p>{details}</p>
-
+      <br />
+      <List divided relaxed>
+        {filteredItems.map( i => 
+          <Link to={{
+            pathname: `/items/${i.id}`,
+            state: {
+              ...i
+            }
+          }}>
+            <List.Item>
+              <List.Content>
+                <List.Header>{i.food_name}</List.Header>
+                <List.Header>{i.name}</List.Header>
+              </List.Content>
+            </List.Item>
+          </Link>
+        )}
+      </List>
     </>
   )
 }
 
 const ConnectedFindItem = (props) => (
-  <AuthConsumer>
+  <ItemConsumer>
     { value => <ShowEvent {...value} {...props}/>}
-  </AuthConsumer>
+  </ItemConsumer>
 )
 
 export default ConnectedFindItem;

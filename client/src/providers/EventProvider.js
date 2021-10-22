@@ -6,6 +6,7 @@ export const EventConsumer = EventContext.Consumer;
 
 const EventProvider = ({ children }) => {
   const [events, setEvents] = useState([])
+  const [eventUsers, setEventUsers] = useState([])
 
   useEffect(() => {
     axios.get('/api/events')
@@ -16,6 +17,12 @@ const EventProvider = ({ children }) => {
   const grabEvents = () => {
     axios.get('/api/events')
       .then( res => setEvents(res.data) )
+      .catch( err => console.log(err))
+  }
+  
+  const grabEventUsers = (id) => {
+    axios.get(`/api/eventUsers/${id}`)
+      .then( res => setEventUsers(res.data) )
       .catch( err => console.log(err))
   }
 
@@ -60,11 +67,13 @@ const EventProvider = ({ children }) => {
   return (
     <EventContext.Provider value={{
       events,
+      eventUsers,
       grabEvents: grabEvents,
       addEvent: addEvent,
       updateEvent: updateEvent,
       deleteEvent: deleteEvent,
-      getUserEvent: getUserEvent
+      getUserEvent: getUserEvent,
+      grabEventUsers: grabEventUsers
     }}>
       { children}
     </EventContext.Provider>
