@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Redirect } from 'react-router';
 import EventForm from './EventForm';
-
+import styled from 'styled-components';
 
 const Event = ({id, title, event_date, details, image, event_time, deleteEvent, updateEvent}) => {
   const [editing, setEdit] = useState(false)
@@ -36,5 +37,10 @@ const Event = ({id, title, event_date, details, image, event_time, deleteEvent, 
 }
 
 export default Event;
+
+const button = styled.button
+color: Red;
+;
+
 
 
