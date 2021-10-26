@@ -1,12 +1,14 @@
 import { Link, withRouter } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Menu } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 const Navbar = ({ user, handleLogout, history, location }) => {
   const rightNavItems = () => {
     if (user) {
       // links if the user is logged in
       return (
+        <CustomElement>
         <Menu pointing secondary>
           <Link to="/events">
             <Menu.Item
@@ -43,10 +45,12 @@ const Navbar = ({ user, handleLogout, history, location }) => {
             </Link>
           </Menu.Menu>  
         </Menu>
+        </CustomElement>
       )
     } else {
       // links if there is no user logged in 
       return(
+        <CustomElement>
         <Menu.Menu position='right'>
           <Link to='/login'>
             <Menu.Item
@@ -63,21 +67,26 @@ const Navbar = ({ user, handleLogout, history, location }) => {
             />
           </Link>
         </Menu.Menu>
+        </CustomElement>
       )
     }
   }
   return(
     <div>
+      <CustomElement>
       <Menu pointing secondary>
         <Link to='/'>
+        <CustomFont>
           <Menu.Item
             name='home'
             id='home'
             active={location.pathname === '/'}
-          />
+          /></CustomFont>
         </Link>
           { rightNavItems() }
       </Menu>
+      
+      </CustomElement>
     </div>
   )
 }
@@ -89,3 +98,11 @@ const ConnectedNavbar = (props) => (
 )
 
 export default withRouter(ConnectedNavbar)
+
+const CustomElement = styled.div`
+background-image: url("https://images.unsplash.com/photo-1463183547458-6a2c760d0912?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80");
+
+`;
+const CustomFont = styled.div`
+color: white;
+`
