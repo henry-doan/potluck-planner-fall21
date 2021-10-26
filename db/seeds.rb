@@ -21,15 +21,15 @@
       image: Faker::Placeholdit.image,
       event_time:"11am"
       )
-      2.times do
-        Item.create(
-          food_name: Faker::Food.dish,
-          complete: false,
-          user_id: @user.id,
-          event_id: @event.id
-        )
-      end
-  end
+    end
+    2.times do
+      Item.create(
+        food_name: Faker::Food.dish,
+        complete: false,
+        # user_id: @user.id,
+        event_id: @event.id
+      )
+    end
 end
 puts "Data Seeded Yo!"
 @users = User.all

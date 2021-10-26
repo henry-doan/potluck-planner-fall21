@@ -32,7 +32,7 @@ class Api::UsersController < ApplicationController
   
   def userEvents
     @user = User.find(params[:id])
-    render json: @user.events
+    render json: @current_user.events
   end
 
   def userItems

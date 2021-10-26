@@ -23,7 +23,7 @@ const Profile = ({ user, updateUser, history }) => {
   const [formVals, setFormValue] = useState({ first_name: '', last_name: '', email: '', file: '' })
 
   useEffect( () => {
-    const { first_name, last_name, email, image } = user.user 
+    const { first_name, last_name, email, image } = user 
     setFormValue({ first_name, last_name, email, image })
   }, [])
 
@@ -34,13 +34,33 @@ const Profile = ({ user, updateUser, history }) => {
   const profileView = () => {
     return (
       <>
+      {user ? 
+      <>
         <Grid.Column width={4}>
           <Image src={ formVals.image || defaultImage } />
+        </Grid.Column>
+        <Grid.Column width={8}>
+          <h1>{user.first_name} {user.last_name}</h1>
+          <p>{user.email}</p>
+        </Grid.Column>
+        </>
+        :
+        <>
+        </>
+      }
+      {/* {user.user ? 
+      <>
+        <Grid.Column width={4}>
         </Grid.Column>
         <Grid.Column width={8}>
           <h1>{user.user.first_name} {user.user.last_name}</h1>
           <p>{user.user.email}</p>
         </Grid.Column>
+        </>
+        :
+        <>
+        </>
+      } */}
       </>
     )
   }
@@ -100,7 +120,7 @@ const Profile = ({ user, updateUser, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(user.user.id, formVals, history)
+    updateUser(user.id, formVals, history)
     setEditing(false)
     setFormValue({...formVals, file: ""})
   }
@@ -111,9 +131,9 @@ const Profile = ({ user, updateUser, history }) => {
         <Grid.Row>
           { editing ? editView() : profileView() }
           <Grid.Column>
-            <Button onClick={() => setEditing(!editing)}>
+            {/* <Button onClick={() => setEditing(!editing)}>
               {editing ? 'Cancel' : 'Edit'}
-            </Button>
+            </Button> */}
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,40 +1,47 @@
-import { EventConsumer } from '../../providers/EventProvider';
-import ItemList from '../items/ItemList';
-import { List } from 'semantic-ui-react';
+import { AuthConsumer } from '../../providers/AuthProvider';
+import { Grid, Card, Image, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-const EventList = ({  events, grabEvents }) => {
+const EventList = ({ events, grabEvents, deleteEvent, userEvents, grabUserEvents }) => {
 
   useEffect( () => {
-    grabEvents()
+    grabUserEvents()
   }, [])
 
   return(
     <>
-      <List divided relaxed>
-        {events.map( e => 
+      <Grid columns={3} divided stackable>
+        {userEvents.map( e => 
           <Link to={{
             pathname: `/events/${e.id}`,
             state: {
               ...e
             }
           }}>
-            <List.Item>
-              <List.Content>
-                <List.Header>{e.title}</List.Header>
-              </List.Content>
-            </List.Item>
+            <Grid.Column>
+            <Card>
+              <Image src={e.image} wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>{e.title}</Card.Header>
+                <Card.Description>
+                  {e.event_date} {e.event_time}
+                  <br />
+                  {e.details}
+                </Card.Description>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
           </Link>
         )}
-      </List>
+        </Grid>
     </>
   )
 }
 
 const ConnectedEventList = (props) => (
-  <EventConsumer>
+  <AuthConsumer>
     { value => <EventList {...value} {...props}/>}
-  </EventConsumer>
+  </AuthConsumer>
 )
 
 export default ConnectedEventList;
