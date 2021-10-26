@@ -10,7 +10,7 @@ class Item < ApplicationRecord
     # ON i.user_id = u.id
     # INNER JOIN events as e
     # ON e.id = u.id;
-        select("items.food_name, items.event_id, items.user_id, users.name, events.title")
+        select("items.food_name, items.event_id, items.user_id, users.name, events.title, events.image, events.event_date, events.event_time, events.details")
         .joins("inner join users on users.id = items.user_id")
         .joins("inner join events on events.id = items.event_id")
       end
