@@ -15,6 +15,7 @@ import Profile from './components/auth/Profile';
 
 const App = () => (
   <>
+  
     <Navbar />
     <FetchUser>
       <Switch>
