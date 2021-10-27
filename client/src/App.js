@@ -15,9 +15,8 @@ import Profile from './components/auth/Profile';
 
 const App = () => (
   <>
-  
-    <Navbar />
     <FetchUser>
+    <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />

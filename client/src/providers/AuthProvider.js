@@ -14,7 +14,9 @@ const AuthProvider = ({ children }) => {
 
   const grabUserEvents = () => {
     axios.get(`/api/userEvents/${user.id}`)
-      .then( res => setUserEvents(res.data))
+      .then( res => {
+        console.log(res)
+        setUserEvents(res.data)})
       .catch( err => console.log(err))
   }
  
