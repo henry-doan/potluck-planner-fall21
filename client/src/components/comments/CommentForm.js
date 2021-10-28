@@ -13,12 +13,12 @@ const CommentForm = ({addComment, id, item_id, subject, body, author, updateComm
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-        updateItem(id, comment)
+        updateComment(id, comment)
         setEdit(false)
     } else {
         addComment(comment)
     }
-    setItem({subject: "", body: "", author: "" })
+    setComment({subject: "", body: "", author: "" })
   }
 
   return (

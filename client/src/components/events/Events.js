@@ -6,18 +6,22 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { EventConsumer } from '../../providers/EventProvider';
 
 const Events = ({ location, user }) => {
-  const [open, setOpen] = useState(false)
+  // const [open, setOpen] = useState(false)
+  const [showForm, setShowForm] = useState(false)
 
   // const { title, event_date, event_time, details, image } = location.state
   return (
     <>
-    {user && <h3>{user.name}</h3>}
-      <h1>Hello</h1> 
-      <Modal
+      <h1>Hello</h1> {user && <h3>{user.name}</h3>}
+      <Button color="#E6E6E8" onClick={() => setShowForm(!showForm)}>
+        Create Event
+      </Button>
+      {showForm && <EventForm />}
+      {/* <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
-        trigger={<Button color="gray">Create Event</Button>}
+        trigger={<Button color="#E6E6E8">Create Event</Button>}
       >
         <Modal.Header>Create an Event</Modal.Header>
         <Modal.Content>
@@ -37,7 +41,7 @@ const Events = ({ location, user }) => {
             Cancel
           </Button>
         </Modal.Actions>
-      </Modal>
+      </Modal> */}
       <br />
       <br />
       <br />

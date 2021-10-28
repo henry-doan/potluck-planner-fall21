@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
+const ShowEvent = ({ location, event, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
 
   const { id, title, event_date, event_time, details, image, event_id } = location.state
 
@@ -17,6 +17,7 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
 
   return (
     <>  
+    <br />
       <div>{image}</div>
       <h1>{title}</h1>
       <p>{event_date}</p>

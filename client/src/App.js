@@ -11,7 +11,9 @@ import ShowEvent from './components/events/ShowEvent';
 import Items from './components/items/Items';
 import ShowItem from './components/items/ShowItem';
 import Profile from './components/auth/Profile';
-
+import About from './components/shared/About';
+import Comments from './components/comments/Comments';
+import ShowComment from './components/comments/ShowComment'
 
 const App = () => (
   <>
@@ -21,10 +23,13 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path='/about' component={About}/>
         <ProtectedRoute exact path="/events" component={Events} />
         <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
         <ProtectedRoute exact path="/items" component={Items} />
         <ProtectedRoute exact path="/items/:id" component={ShowItem} />
+        <Route exact path="/comments" component={Comments} />
+        <Route exact path="/commments/:id" component={ShowComment} />
         <ProtectedRoute exact path="/profile" component={Profile} />
         <Route component={Nomatch} />
       </Switch>
