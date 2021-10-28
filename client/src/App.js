@@ -11,7 +11,7 @@ import ShowEvent from './components/events/ShowEvent';
 import Items from './components/items/Items';
 import ShowItem from './components/items/ShowItem';
 import Profile from './components/auth/Profile';
-
+import FriendForm from './components/shared/FriendForm';
 
 const App = () => (
   <>
@@ -26,6 +26,7 @@ const App = () => (
         <ProtectedRoute exact path="/items" component={Items} />
         <ProtectedRoute exact path="/items/:id" component={ShowItem} />
         <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/friendForm" component={FriendForm} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>  
