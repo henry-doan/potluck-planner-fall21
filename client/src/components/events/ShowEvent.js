@@ -16,14 +16,14 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
   const filteredItems = grabAssignedItems.filter( i =>
       id === i.event_id
     )
-
+console.log(filteredItems)
   return (
     <>  
     <br>
     </br>
     <br>
     </br>
-      <div>{image}</div>
+      <div> <img src={image} class="ui medium image"/></div>
       <h1>{title}</h1>
       <p>{event_date}</p>
       <p>{event_time}</p>
@@ -53,7 +53,7 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
             
             <List.Item>
               <List.Content>
-                <List.Header>{i.image}</List.Header>
+                <List.Header><img src={i.image} class="ui medium image" /></List.Header>
                 <List.Header>{i.food_name}</List.Header>
               </List.Content>
             </List.Item>
