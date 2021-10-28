@@ -2,6 +2,8 @@ import { ItemConsumer } from "../../providers/ItemProvider";
 import { useEffect } from "react";
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import {ButtonWrapper} from '../styles/EventStyles';
+
 
 const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
 
@@ -17,12 +19,26 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
 
   return (
     <>  
+    <br>
+    </br>
       <div>{image}</div>
       <h1>{title}</h1>
       <p>{event_date}</p>
       <p>{event_time}</p>
       <p>{details}</p>
       <br />
+
+         <ButtonWrapper>
+            <button class="ui primary button">
+              Available
+            </button>
+            <button class="ui button">
+              Assigned
+            </button>
+          </ButtonWrapper>
+
+
+
       <List divided relaxed>
         {filteredItems.map( i => 
           <Link to={{
@@ -31,6 +47,10 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
               ...i
             }
           }}>
+            
+            
+            
+            
             <List.Item>
               <List.Content>
                 <List.Header>{i.food_name}</List.Header>
