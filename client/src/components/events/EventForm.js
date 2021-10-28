@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { EventConsumer } from '../../providers/EventProvider';
+// import { AuthConsumer } from '../../providers/AuthProvider';
 
 const EventForm = ({addEvent, id, title, event_date, event_time, details, image, updateEvent, setEdit}) => {
   const [event, setEvent] = useState({title: "", event_date: "", event_time: "", image: "", details: "" })
@@ -9,7 +10,10 @@ const EventForm = ({addEvent, id, title, event_date, event_time, details, image,
       setEvent({ title, event_date, event_time, details, image})  
     }
   }, [])
+  //
 
+
+//
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
