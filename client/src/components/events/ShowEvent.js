@@ -21,6 +21,8 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
     <>  
     <br>
     </br>
+    <br>
+    </br>
       <div>{image}</div>
       <h1>{title}</h1>
       <p>{event_date}</p>
@@ -53,8 +55,8 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
             
             <List.Item>
               <List.Content>
+                <List.Header>{i.image}</List.Header>
                 <List.Header>{i.food_name}</List.Header>
-                <List.Header>{i.name}</List.Header>
               </List.Content>
             </List.Item>
           </Link>
