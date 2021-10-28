@@ -50,11 +50,12 @@ console.log(filteredItems)
             }
           }}>
             
+           
             
             <List.Item>
               <List.Content>
-                <List.Header><img src={i.image} class="ui medium image" /></List.Header>
-                <List.Header>{i.food_name}</List.Header>
+                <List.Header><img src={i.image} class="ui small image"/> </List.Header>
+                <List.Header><h3 className="ui header">{i.food_name}</h3></List.Header>
               </List.Content>
             </List.Item>
           </Link>
