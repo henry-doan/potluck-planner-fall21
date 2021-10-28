@@ -51,8 +51,6 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
           }}>
             
             
-            
-            
             <List.Item>
               <List.Content>
                 <List.Header>{i.image}</List.Header>
