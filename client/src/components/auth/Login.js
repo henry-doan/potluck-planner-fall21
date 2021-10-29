@@ -10,6 +10,9 @@ const Login = ({ handleLogin, history }) => {
   }
 
   return(
+    <>
+    <br />
+    <br />
     <Segment raised>
       <Header as='h2' textAlign='center'>Login</Header>
       <Form onSubmit={handleSubmit}>
@@ -34,6 +37,7 @@ const Login = ({ handleLogin, history }) => {
         </Segment>
       </Form>
     </Segment>
+    </>
   )
 }
 

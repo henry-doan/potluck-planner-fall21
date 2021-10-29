@@ -17,7 +17,6 @@ ReactDOM.render(
     <AuthProvider>
       <EventProvider>
         <ItemProvider>
-        </BrowserRouter>
           <CommentProvider>
             <BrowserRouter> 
               <App />
