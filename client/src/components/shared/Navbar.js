@@ -26,11 +26,11 @@ const Navbar = ({ user, handleLogout, history, location }) => {
               active={location.pathname === '/items'}
               />
           </Link>
-          <Link to="/invite">
+          <Link to="/friendForm">
             <Text
-              id='invite'
+              id='friendForm'
               name='invite a buddy'
-              active={location.pathname === '/invite'}
+              active={location.pathname === '/friendForm'}
             />
           </Link>
           <Menu.Menu position='right'>
