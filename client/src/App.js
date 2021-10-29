@@ -12,6 +12,7 @@ import Items from './components/items/Items';
 import ShowItem from './components/items/ShowItem';
 import Profile from './components/auth/Profile';
 import About from './components/shared/About';
+import Footer from './components/shared/Footer';
 import Comments from './components/comments/Comments';
 import ShowComment from './components/comments/ShowComment'
 import FriendForm from './components/shared/FriendForm';
@@ -24,7 +25,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path='/about' component={About}/>
+        <Route exact path="/about" component={About} /> 
         <ProtectedRoute exact path="/events" component={Events} />
         <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
         <ProtectedRoute exact path="/items" component={Items} />
@@ -35,6 +36,7 @@ const App = () => (
         <ProtectedRoute exact path="/friendForm" component={FriendForm} />
         <Route component={Nomatch} />
       </Switch>
+      <Footer/>
     </FetchUser>  
   </>
 )
