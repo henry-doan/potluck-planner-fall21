@@ -37,7 +37,7 @@ const ShowItem = ({ location, eventId, deleteItem }) => {
                     {showForm && <ItemForm />}
                   </Grid.Column>  
                   <Grid.Column>  
-                  <Button fluid style={{backgroundColor: "#E34B36"}} onClick={() => deleteItem(eventId)}>
+                  <Button fluid style={{backgroundColor: "#E34B36", opacity: "0.3"}} onClick={() => deleteItem(eventId)}>
                     Delete
                   </Button>
                 </Grid.Column>
