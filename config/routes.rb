@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get 'findItem/:user_id/:event_id', to: 'items#findItem'
     get 'eventItems/:event_id', to: 'items#eventItems'
     get 'grabAssignedItems/:id', to: 'items#grabAssignedItems'
+    get 'FriendForm', to: 'friendForm'
   end
 
 end

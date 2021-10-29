@@ -14,6 +14,7 @@ import Profile from './components/auth/Profile';
 import About from './components/shared/About';
 import Comments from './components/comments/Comments';
 import ShowComment from './components/comments/ShowComment'
+import FriendForm from './components/shared/FriendForm';
 
 const App = () => (
   <>
@@ -31,6 +32,7 @@ const App = () => (
         <Route exact path="/comments" component={Comments} />
         <Route exact path="/commments/:id" component={ShowComment} />
         <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/friendForm" component={FriendForm} />
         <Route component={Nomatch} />
       </Switch>
     </FetchUser>  
