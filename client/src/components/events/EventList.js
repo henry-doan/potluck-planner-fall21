@@ -1,17 +1,17 @@
-import { AuthConsumer } from '../../providers/AuthProvider';
+import { EventConsumer } from '../../providers/EventProvider';
 import { Grid, Card, Image, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 const EventList = ({ events, grabEvents, deleteEvent, userEvents, grabUserEvents }) => {
 
   useEffect( () => {
-    grabUserEvents()
+    grabEvents()
   }, [])
 
   return(
     <>
       <Grid columns={3} divided stackable>
-        {userEvents.map( e => 
+        {events.map( e => 
           <Link to={{
             pathname: `/events/${e.id}`,
             state: {
@@ -39,9 +39,9 @@ const EventList = ({ events, grabEvents, deleteEvent, userEvents, grabUserEvents
 }
 
 const ConnectedEventList = (props) => (
-  <AuthConsumer>
+  <EventConsumer>
     { value => <EventList {...value} {...props}/>}
-  </AuthConsumer>
+  </EventConsumer>
 )
 
 export default ConnectedEventList;

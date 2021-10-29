@@ -11,7 +11,7 @@ const CommentProvider = ({ children }) => {
   
   const grabComments = (itemId) => {
     axios.get(`/api/items/${itemId}/comments`)
-      .then( res => set(res.data) )
+      .then( res => setComments(res.data) )
       .catch( err => console.log(err))
   }
 

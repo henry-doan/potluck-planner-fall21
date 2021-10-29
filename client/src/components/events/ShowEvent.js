@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {ButtonWrapper} from '../styles/EventStyles';
 
 
-const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
+const ShowEvent = ({ location, event, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
 
   const { id, title, event_date, event_time, details, image, event_id } = location.state
 
@@ -18,7 +18,7 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
     )
 console.log(filteredItems)
   return (
-    <>  
+    <>
     <br>
     </br>
     <br>

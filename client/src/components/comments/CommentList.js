@@ -1,13 +1,13 @@
-import { AuthConsumer } from '../../providers/AuthProvider';
+import { CommentConsumer } from '../../providers/CommentProvider';
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, grabComments }) => {
 
-  // useEffect( () => {
-  //   grabUserItems()
-  // }, [])
+  useEffect( () => {
+    grabComments()
+  }, [])
 
   return(
     <>
@@ -32,9 +32,9 @@ const CommentList = ({ comments }) => {
 }
 
 const ConnectedCommentList = (props) => (
-  <AuthConsumer>
+  <CommentConsumer>
     { value => <CommentList {...value} {...props}/>}
-  </AuthConsumer>
+  </CommentConsumer>
 )
 
 export default ConnectedCommentList;
