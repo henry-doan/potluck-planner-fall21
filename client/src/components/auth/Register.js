@@ -59,7 +59,7 @@ const Register = ({ handleRegister, history }) => {
           required
         />
         <Segment textAlign='center' basic>
-          <Button primary type="submit">Register</Button>
+          <Button style={{backgroundColor: "#122546", color: "white"}} type="submit">Register</Button>
         </Segment>
       </Form>
     </Segment>

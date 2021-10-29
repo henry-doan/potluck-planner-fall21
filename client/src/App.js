@@ -13,6 +13,10 @@ import ShowItem from './components/items/ShowItem';
 import Profile from './components/auth/Profile';
 import About from './components/shared/About';
 import Footer from './components/shared/Footer';
+import Comments from './components/comments/Comments';
+import ShowComment from './components/comments/ShowComment'
+import FriendForm from './components/shared/FriendForm';
+
 const App = () => (
   <>
     <FetchUser>
@@ -26,7 +30,10 @@ const App = () => (
         <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
         <ProtectedRoute exact path="/items" component={Items} />
         <ProtectedRoute exact path="/items/:id" component={ShowItem} />
+        <Route exact path="/comments" component={Comments} />
+        <Route exact path="/commments/:id" component={ShowComment} />
         <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/friendForm" component={FriendForm} />
         <Route component={Nomatch} />
       </Switch>
       <Footer/>

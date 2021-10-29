@@ -30,7 +30,7 @@ const Login = ({ handleLogin, history }) => {
           required
         />
         <Segment textAlign='center' basic>
-          <Button primary type="submit">Login</Button>
+          <Button style={{backgroundColor: "#122546", color: "white"}} type="submit">Login</Button>
         </Segment>
       </Form>
     </Segment>

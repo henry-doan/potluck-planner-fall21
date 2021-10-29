@@ -2,8 +2,10 @@ import { ItemConsumer } from "../../providers/ItemProvider";
 import { useEffect } from "react";
 import { List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import {ButtonWrapper} from '../styles/EventStyles';
 
-const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
+
+const ShowEvent = ({ location, event, grabFindItem, findItem, eventItems, grabAssignedItems, getGrabAssignedItems }) => {
 
   const { id, title, event_date, event_time, details, image, event_id } = location.state
 
@@ -14,15 +16,31 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
   const filteredItems = grabAssignedItems.filter( i =>
       id === i.event_id
     )
-
+console.log(filteredItems)
   return (
-    <>  
-      <div>{image}</div>
+    <>
+    <br>
+    </br>
+    <br>
+    </br>
+      <div> <img src={image} class="ui medium image"/></div>
       <h1>{title}</h1>
       <p>{event_date}</p>
       <p>{event_time}</p>
       <p>{details}</p>
       <br />
+
+         <ButtonWrapper>
+            <button class="ui primary button">
+              Available
+            </button>
+            <button class="ui button">
+              Assigned
+            </button>
+          </ButtonWrapper>
+
+
+
       <List divided relaxed>
         {filteredItems.map( i => 
           <Link to={{
@@ -31,10 +49,13 @@ const ShowEvent = ({ location, grabFindItem, findItem, eventItems, grabAssignedI
               ...i
             }
           }}>
+            
+           
+            
             <List.Item>
               <List.Content>
-                <List.Header>{i.food_name}</List.Header>
-                <List.Header>{i.name}</List.Header>
+                <List.Header><img src={i.image} class="ui small image"/> </List.Header>
+                <List.Header><h3 className="ui header">{i.food_name}</h3></List.Header>
               </List.Content>
             </List.Item>
           </Link>
