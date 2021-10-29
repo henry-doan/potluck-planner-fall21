@@ -16,26 +16,29 @@ import Footer from './components/shared/Footer';
 import Comments from './components/comments/Comments';
 import ShowComment from './components/comments/ShowComment'
 import FriendForm from './components/shared/FriendForm';
+import { Container } from 'semantic-ui-react';
 
 const App = () => (
   <>
     <FetchUser>
     <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/about" component={About} /> 
-        <ProtectedRoute exact path="/events" component={Events} />
-        <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
-        <ProtectedRoute exact path="/items" component={Items} />
-        <ProtectedRoute exact path="/items/:id" component={ShowItem} />
-        <Route exact path="/comments" component={Comments} />
-        <Route exact path="/commments/:id" component={ShowComment} />
-        <ProtectedRoute exact path="/profile" component={Profile} />
-        <ProtectedRoute exact path="/friendForm" component={FriendForm} />
-        <Route component={Nomatch} />
-      </Switch>
+        <Switch>
+          <Route exact path="/" component={Home} />
+      <Container>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/about" component={About} /> 
+          <ProtectedRoute exact path="/events" component={Events} />
+          <ProtectedRoute exact path="/events/:id" component={ShowEvent} />
+          <ProtectedRoute exact path="/items" component={Items} />
+          <ProtectedRoute exact path="/items/:id" component={ShowItem} />
+          <Route exact path="/comments" component={Comments} />
+          <Route exact path="/commments/:id" component={ShowComment} />
+          <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute exact path="/friendForm" component={FriendForm} />
+          {/* <Route component={Nomatch} /> */}
+      </Container>
+        </Switch>
       <Footer/>
     </FetchUser>  
   </>

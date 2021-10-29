@@ -15,6 +15,9 @@ const Register = ({ handleRegister, history }) => {
   }
 
   return(
+    <>
+    <br />
+    <br />
     <Segment raised>
       <Header as='h2' textAlign='center'>Register</Header>
       <Form onSubmit={handleSubmit}>
@@ -63,6 +66,7 @@ const Register = ({ handleRegister, history }) => {
         </Segment>
       </Form>
     </Segment>
+    </>
   )
 }
 

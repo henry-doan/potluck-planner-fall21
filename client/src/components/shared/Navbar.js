@@ -76,15 +76,10 @@ const Navbar = ({ user, handleLogout, history, location }) => {
   return(
     <div>
       <CustomElement>
-      <Grid columns={3} divided stackable>
+      <Grid divided stackable>
       <Menu pointing secondary>
         <Link to='/'>
-             <Logo src={LogoSrc} />
-          <Text
-            name='home'
-            id='home'
-            active={location.pathname === '/'}
-          />
+          <Logo src={LogoSrc} />
         </Link>
           { rightNavItems() }
       </Menu>
@@ -100,7 +95,7 @@ const ConnectedNavbar = (props) => (
 )
 export default withRouter(ConnectedNavbar)
 const CustomElement = styled.div`
-background-image: url("https://images.unsplash.com/photo-1463183547458-6a2c760d0912?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80");
+width: 100%;
 `
 const Text = styled(Menu.Item)`
 display: flex;
@@ -110,8 +105,9 @@ font-family: Rubik;
 font-style: normal;
 font-weight: 500;
 font-size: 20px;
-color: white !important;
+color: black !important;
 display: flex;
+margin-top: 30px !important;
 `
 const Logo = styled.img`
 display: flex;
