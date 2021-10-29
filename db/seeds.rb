@@ -13,13 +13,14 @@
     email: Faker::Internet.email,
     password: '123456'
   )
-
-  Event.create( title: 'DevPoint Graduation Lunch', event_date: 'Saturday, November 6', details: 'We did it! Celebrate with a feast fit for coding royalty.', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377842/Potluck%20Planner%20Project/klara-kulikova-5eoiyhGLFb4-unsplash_zcelpn.jpg', event_time: '12:00PM-2:00PM')
-  Event.create( title: 'Taco Tuesday Friendsgiving', event_date: 'Tuesday, November 23', details: 'Food, fun and friends. What more could you ask for?', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377073/Potluck%20Planner%20Project/jeswin-thomas-z_PfaGzeN9E-unsplash_qphnff.jpg', event_time: '5:00PM-8:00PM')
-  Event.create( title: 'Halloween Party', event_date: 'Sunday, October 31', details: 'Bring your favorite hauntingly delicious treats. Wear your favorite superhero costume!', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377721/Potluck%20Planner%20Project/sheri-silver-9IW9vsM0vz8-unsplash_ygpdwi.jpg', event_time: '7:00 PM-10:00 PM')
-  Event.create( title: 'Birthday Celebration for YiaYia', event_date: 'December 3', details: 'Join us in celebrating YiaYia with some of her favorite holiday dishes.', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377746/Potluck%20Planner%20Project/bryony-elena-N4b3Q1mfPWU-unsplash_tqzhf2.jpg', event_time: '5:00 PM-8:00 PM')
-  
 end
+
+Event.create( title: 'DevPoint Graduation Lunch', event_date: 'Saturday, November 6', details: 'We did it! Celebrate with a feast fit for coding royalty.', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377842/Potluck%20Planner%20Project/klara-kulikova-5eoiyhGLFb4-unsplash_zcelpn.jpg', event_time: '12:00PM-2:00PM')
+Event.create( title: 'Taco Tuesday Friendsgiving', event_date: 'Tuesday, November 23', details: 'Food, fun and friends. What more could you ask for?', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377073/Potluck%20Planner%20Project/jeswin-thomas-z_PfaGzeN9E-unsplash_qphnff.jpg', event_time: '5:00PM-8:00PM')
+Event.create( title: 'Halloween Party', event_date: 'Sunday, October 31', details: 'Bring your favorite hauntingly delicious treats. Wear your favorite superhero costume!', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377721/Potluck%20Planner%20Project/sheri-silver-9IW9vsM0vz8-unsplash_ygpdwi.jpg', event_time: '7:00 PM-10:00 PM')
+Event.create( title: 'Birthday Celebration for YiaYia', event_date: 'December 3', details: 'Join us in celebrating YiaYia with some of her favorite holiday dishes.', image: 'https://res.cloudinary.com/dialoulou/image/upload/v1635377746/Potluck%20Planner%20Project/bryony-elena-N4b3Q1mfPWU-unsplash_tqzhf2.jpg', event_time: '5:00 PM-8:00 PM')
+
+
 
 Item.create( food_name: 'Steak picado', complete: 'false', user_id: rand(1..10), event_id: 2)
 Item.create( food_name: 'Tortillas', complete: 'false', user_id: rand(1..10), event_id: 2)
