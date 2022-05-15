@@ -64,7 +64,7 @@ const EventProvider = ({ children }) => {
 
   const deleteEvent = (id) => {
     axios.delete(`api/events/${id}`)
-      .then(res => {
+      .then(_res => {
         setEvents(events.filter( l => l.id !== id))
         window.location.href = '/events'
       })

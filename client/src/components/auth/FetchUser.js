@@ -24,7 +24,7 @@ const FetchUser = ({ authenticated, setUser, children }) => {
         load()
       }
     }
-  }, [])
+  }, )
 
   const checkLocalToken = () => {
     const token = localStorage.getItem('access-token')
