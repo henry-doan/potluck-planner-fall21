@@ -1,12 +1,12 @@
 import { EventConsumer } from '../../providers/EventProvider';
-import { Grid, Card, Image, Button, Icon } from 'semantic-ui-react';
+import { Grid, Card, Image, Button, Icon, GridColumn } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 const EventList = ({ events, grabEvents, deleteEvent, userEvents, grabUserEvents }) => {
 
   useEffect( () => {
     grabEvents()
-  }, [])
+  }, [grabEvents])
 
   return(
     <>

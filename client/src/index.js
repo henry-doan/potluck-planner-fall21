@@ -13,11 +13,11 @@ import CommentProvider from './providers/CommentProvider';
 initMiddleware();
 
 ReactDOM.render(
+  
   <React.StrictMode>
     <AuthProvider>
       <EventProvider>
         <ItemProvider>
-        </BrowserRouter>
           <CommentProvider>
             <BrowserRouter> 
               <App />

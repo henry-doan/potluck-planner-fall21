@@ -75,7 +75,6 @@ const Navbar = ({ user, handleLogout, history, location }) => {
   }
   return(
     <div>
-      <CustomElement>
       <Grid columns={3} divided stackable>
       <Menu pointing secondary>
         <Link to='/'>
@@ -89,7 +88,6 @@ const Navbar = ({ user, handleLogout, history, location }) => {
           { rightNavItems() }
       </Menu>
       </Grid>
-      </CustomElement>
     </div>
   )
 }

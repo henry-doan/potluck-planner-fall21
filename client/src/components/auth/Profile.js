@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Container, Grid, Button, Form, Image, GridColumn } from 'semantic-ui-react';
+import { Container, Grid, Button, Form, Image, } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
@@ -25,7 +25,7 @@ const Profile = ({ user, updateUser, history }) => {
   useEffect( () => {
     const { first_name, last_name, email, image } = user 
     setFormValue({ first_name, last_name, email, image })
-  }, [])
+  }, [user])
 
   const onDrop = (files) => {
     setFormValue({ ...formVals, file: files[0] })
